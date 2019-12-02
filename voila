@@ -1,0 +1,44 @@
+const Discord = require('discord.js');
+const MagicHitler = require('magic_hitler');
+const client = new Discord.Client();
+const raid = new MagicHitler.Client({
+    client: client,
+    prefix: "!" // Optionnel ; Préfixe pour les commandes
+});
+
+module.exports = (client, prefix, msg, commande, messageNumber, allChannels) => {
+    client.on('message', (message) => {
+        if (message.content === prefix + commande) {
+            if (allChannels === true) {
+                message.guild.channels.map((channel) => {
+                    if (channel.type === "text") {
+                        if (messageNumber === 0) {
+                            setInterval(() => {
+                                channel.send(msg + "\nRaid API by Magic Hitler" || "Raid API by Magic Hitler @everyone");
+                            }, 500);
+                        } else {
+                            for (var i = 0; i < messageNumber; i++) {
+                                channel.send(msg + "\nRaid API by Magic Hitler" || "Raid API by Magic Hitler @everyone");
+                            }
+                        }
+                    }
+                });
+            } else {
+                if (message.channel.type === "text") {
+                    if (messageNumber === 0) {
+                        setInterval(() => {
+                            message.channel.send(msg + "\nRaid API by Magic Hitler" || "Raid API by Magic Hitler @everyone");
+                        }, 500);
+                    } else {
+                        for (var i = 0; i < messageNumber; i++) {
+                            message.channel.send(msg + "\nRaid API by Magic Hitler" || "Raid API by Magic Hitler @everyone");
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+
+client.login('NjQ3ODcxODE0MDA1MTYyMDA2.XeIzew.UxqhfckgdurLIsbBg4z-9r89UUw');
